@@ -5,9 +5,6 @@ public class ObjectTriggered : MonoBehaviour
 {
     public GameManager gameManager;
 
-    //cases to complete the level
-    public bool killingEnemy;
-    private bool enemyKilled;
     public EndLevel endLevel;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,14 +13,10 @@ public class ObjectTriggered : MonoBehaviour
         {
             gameManager.RestartLevel();
         }
-        else if (collision.CompareTag("Enemy"))
+        else if(collision.CompareTag("Enemy"))
         {
-            if (gameManager != null)
-                endLevel.OpenDoor();
-
-            
-            else
-                Debug.Log("Final Level");
+            EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            enemyStats.TakeDamage(3);
         }
     }
 }

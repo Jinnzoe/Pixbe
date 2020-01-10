@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4076806281444770092}
   - component: {fileID: 4076806281444770091}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4076806282004697213}
   - component: {fileID: 4076806282004697214}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4076806282043208442}
   - component: {fileID: 4076806282043208441}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Opened
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 4076806283091239536}
   - component: {fileID: 4076806283091239551}
   - component: {fileID: 4076806283091239550}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DoorAway
   m_TagString: EndLevel
   m_Icon: {fileID: 0}
@@ -307,3 +307,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorClosed: {fileID: 4076806281444770090}
   doorOpened: {fileID: 4076806282043208440}
+  finalLevel: 0

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Parameters")]
     public float horizontalSpeed;
+    public bool canMove;
     private float xSpeed, ySpeed;
 
     [Header("Jump Parameters")]
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float jumpRadius;
     public LayerMask groundMask;
-    public bool isGrounded;
+    private bool isGrounded;
     public bool hasJump;
     private bool doubleJumpState;
 
@@ -48,7 +49,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!canMove)
+            Movement();
 
         if (doubleJumpState)
             DoubleJump();
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
         activeVolume.profile.TryGetSettings(out cA);
         activeVolume.profile.TryGetSettings(out vignette);
         activeVolume.profile.TryGetSettings(out cG);
-
+        
         if (timeManager.TimeState())
         {
             if(cA.intensity.value < 1)
@@ -86,9 +88,9 @@ public class PlayerController : MonoBehaviour
         else
         {
             if (cA.intensity.value > 0)
-                cA.intensity.value -= Time.deltaTime;
+                cA.intensity.value -= Time.unscaledDeltaTime;
             if(vignette.intensity.value > 0)
-                vignette.intensity.value -= Time.deltaTime;
+                vignette.intensity.value -= Time.unscaledDeltaTime;
 
             if (cG.temperature.value > 0)
             {
@@ -103,6 +105,11 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
             hasJump = false;
+    }
+
+    public bool OnGround()
+    {
+        return isGrounded;
     }
 
     void DoubleJump()
@@ -126,6 +133,11 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         xSpeed = Input.GetAxis("Horizontal") * horizontalSpeed;
+
+        if (xSpeed > 0)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        else if(xSpeed < 0)
+            transform.rotation = Quaternion.Euler(0,180,0);
 
         player.position += new Vector3(xSpeed * Time.deltaTime, ySpeed);
     }

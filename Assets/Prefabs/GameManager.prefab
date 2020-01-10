@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: {fileID: 0}
+  dashTime: {fileID: 0}
+  timeTxt: {fileID: 0}
   playerStats: {fileID: 0}
+  playerDash: {fileID: 0}
+  levelId: 1
+  time2R: 0

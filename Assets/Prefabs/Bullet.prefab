@@ -4920,8 +4920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048a38a57827b6f41b102b17eab530ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
-  right: 0
+  speed: 2
   bloodExplosion: {fileID: 2064151761270490832, guid: 7ca732f26f226c04197a4b859c1ed41e,
     type: 3}
 --- !u!114 &-645624494478833458

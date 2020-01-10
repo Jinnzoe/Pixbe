@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Slider life;
+    public Slider dashTime;
     public Text timeTxt;
     public PlayerStats playerStats;
+    public PlayerDash playerDash;
     //public TimeManager timeManager;
     public float levelId;
     public float time2R;
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviour
 
         if (tempTime != 0)
             time2R = PlayerPrefs.GetFloat("globalTime");
+
+        dashTime.maxValue = playerDash.timeBDash;
+
     }
 
     // Update is called once per frame
@@ -35,6 +40,14 @@ public class GameManager : MonoBehaviour
         {
             MainMenu();
         }
+
+        DashValue();
+    }
+
+    void DashValue()
+    {
+
+        dashTime.value = playerDash.GetDashTime();
     }
 
     /// <summary>
